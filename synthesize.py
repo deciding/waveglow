@@ -27,8 +27,10 @@
 #import os
 from scipy.io.wavfile import write
 import torch
-from mel2samp import MAX_WAV_VALUE
-from denoiser import Denoiser
+import sys
+sys.path.append('waveglow')
+from .denoiser import Denoiser
+MAX_WAV_VALUE = 32768.0
 #python3 inference.py -f <(ls infer/mel_spectrograms/*.pt) -w infer/waveglow_256channels_ljs_v3.pt -o infer/ --is_fp16 -s 0.6
 
 class WaveglowSynthesizer:
